@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">SimpleApp</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="SJSU">San Jose State University</string>
+    <string name="simple_app">Android Simple App</string>
+    <string name="CMPE277">Assignment 2 - CMPE 277</string>
+    <string name="visited">Yes! I have visted SJSU Home page</string>
+    <string name="exitalert">Thank You for Visiting</string>
+    <string name="visitalert">Please visit SJSU Home Page</string>
+    <string name="okay">Okay</string>
+    <string name="exit">Exit</string>
+
+</resources>

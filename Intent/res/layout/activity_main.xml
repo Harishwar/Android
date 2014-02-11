@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:id="@+id/SimpleApp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:text="@string/simple_app"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/Assignment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/SimpleApp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/CMPE277"
+        android:textSize="16.0sp" />
+
+    <Button
+        android:id="@+id/button_SJSU"
+        style="@style/AppBaseTheme"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Assignment"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="72dp"
+        android:autoLink="web"
+        android:clickable="true"
+        android:linksClickable="true"
+        android:onClick="SJSUHomePage"
+        android:text="@string/SJSU"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <Button
+        android:id="@+id/button_visited"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/button_SJSU"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="48dp"
+        android:text="@string/visited"
+        android:onClick="Visited"
+        android:textSize="16sp" />
+
+</RelativeLayout>
