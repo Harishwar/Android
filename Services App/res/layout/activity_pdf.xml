@@ -14,8 +14,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_margin="30dp"
         android:layout_marginBottom="24dp"
+        android:layout_margin="24dp"
         android:orientation="horizontal" >
         
     <Button
@@ -84,7 +84,7 @@
               android:layout_height="wrap_content"
               android:layout_marginBottom="0dip"
               android:layout_marginTop="6dip"
-              android:text="@string/pdf4"               
+              android:text="@string/pdf3"               
               android:textColor="#372c24" />
           <EditText
               android:id="@+id/PDFUri3"

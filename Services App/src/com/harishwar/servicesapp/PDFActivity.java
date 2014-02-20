@@ -1,33 +1,22 @@
 package com.harishwar.servicesapp;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
-
 import com.harishwar.servicesapp.AService;
 import com.harishwar.servicesapp.AsService;
 
 import com.harishwar.servicesapp.R;
 import android.os.Bundle;
-import android.os.Handler;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.os.ResultReceiver;
 import android.app.Activity;
-import android.app.ProgressDialog;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.Toast;
 import android.support.v4.app.NavUtils;
 
@@ -39,24 +28,10 @@ public class PDFActivity extends Activity {
     private EditText url_box5; 
     int PDFCount = 1;
     
-    private ProgressDialog prog_diag;
     private Context context;
     private AsService async_service;
     private boolean async_bound = false;
-    
-    //implement the callback to receive information from the async service
-    private AsServiceCallback.Stub async_callback = new AsServiceCallback.Stub() {
-        @Override
-        public void onDownloadFinished(final String file_name) throws RemoteException {
-            /*runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                	Log.d("Test", "Testing");
-                } 
-            }); */
-        }
-    };
-
+   
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -89,6 +64,18 @@ public class PDFActivity extends Activity {
 		return true;
 		
 	}
+	
+	private AsServiceCallback.Stub async_callback = new AsServiceCallback.Stub() {
+        @Override
+        public void onDownloadFinished(final String file_name) throws RemoteException {
+            /*runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                	Log.d("Test", "Testing");
+                } 
+            }); */
+        }
+    };
 
     private ServiceConnection async_service_connection = new ServiceConnection() {
         @Override
@@ -122,7 +109,7 @@ public class PDFActivity extends Activity {
 	//Start PDF Download
 	public void button_pdf_start_click(View v){
 		if(v.getId() == R.id.button_pdf_start){
-            CharSequence text0 = "Downloading PDF";
+            CharSequence text0 = "Downloading PDF Files";
 	        Log.d(this.getClass().getSimpleName(), "--- Process Started in " + this.getClass().getSimpleName()+" ---");
 	        Toast toast0 = Toast.makeText(context, text0, Toast.LENGTH_LONG);
 	        toast0.show();
@@ -149,7 +136,7 @@ public class PDFActivity extends Activity {
 	            unbindService(async_service_connection);
 	            async_bound = false;
 	        }
-			finish();	
+			PDFActivity.this.finish();	
 		}
 	}
 	

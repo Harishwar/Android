@@ -28,5 +28,6 @@
     <string name="txt4">Text File 4 File Location:</string>
     <string name="txt5">Text File 5 File Location:</string>
     <string name="pdfuri1"><a ref="http://somesite.com/">Somesitre</a></string>
+    <string name="MainScreenInfo">The purpose of the App is to study the role of Android System in creating and managing the lifecycle of Bound and Local Services.</string>
 
 </resources>
