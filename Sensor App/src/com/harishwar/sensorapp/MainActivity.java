@@ -8,16 +8,15 @@ import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.app.Activity;
-import android.content.Intent;
-import android.util.Log;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import android.view.Menu;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.View.OnClickListener;
-import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 public class MainActivity extends Activity {
@@ -31,35 +30,48 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_main);
 		
-		//Timer for 10 Seconds
-		new CountDownTimer(10000, 1000) {
-			public void onTick(long millisUntilFinished) {
-				if(millisUntilFinished<=5999 && millisUntilFinished>=5001){		    		    	 
-					Log.d("5000",""+millisUntilFinished);
-		    		flashon();
-		    	} 
-		    }
-			public void onFinish() {
-				blink();
-			}
-		}.start();
-		    		  		    	
+		Context context = this;
+		PackageManager packageManager = context.getPackageManager();
+
+		//Check if flash is supported
+		if (packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_FLASH)) {
+			//Timer for 10 Seconds
+			new CountDownTimer(10000, 1000) {
+				public void onTick(long millisUntilFinished) {
+					//Turn on Flash at 5th Second
+					if(millisUntilFinished<=5999 && millisUntilFinished>=5001){		    		    	 
+						System.out.println("Flash"+"Turned on Flash Light at "+millisUntilFinished+" millis");
+			    		flashon();
+			    	} 
+			    }
+				//Turn on Blinking Flash at 10th Second
+				public void onFinish() {
+					blink();
+					System.out.println("Blink"+"Blinking Flash Light");
+				}
+			}.start();		
+		}
+		else{
+			CharSequence text = "Flash Not Supported";
+			finish();
+			Toast.makeText(context, text, Toast.LENGTH_SHORT).show();
+		}
+		
 		Light=(ToggleButton)findViewById(R.id.LightButton);		
 		Light.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
 				if(((ToggleButton) v).isChecked()){
 					if(!LightOn){
 						flashon();
-						//LightOn = true;
-					} else {
-						flashoff();
-						//LightOn = false;
-					}
+						System.out.println("ToggleButton"+"FlashLight On");
+					} 
+				} else {
+					flashoff();
+					System.out.println("ToggleButton"+"FlashLight Off");
 				}
 			}
 		});
@@ -71,7 +83,7 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	
+	//Turn on Flash Light
 	public void flashon(){
 		try{
 			if(camera==null){
@@ -95,7 +107,7 @@ public class MainActivity extends Activity {
             LightOn = false;
         }	
 	}
-	
+	//Turn of Flash Light
 	public void flashoff(){
 		if (params.getFlashMode()!=Parameters.FLASH_MODE_OFF){
 			params.setFlashMode(Parameters.FLASH_MODE_OFF);
@@ -104,7 +116,7 @@ public class MainActivity extends Activity {
 			LightOn = false;
 			}
 	}
-
+	//Blinking Flashlight
 	public void blink(){
 		Thread t = new Thread() {
 			public void run() {
@@ -118,7 +130,7 @@ public class MainActivity extends Activity {
                 }
                 camera.startPreview();
             }
-
+			//Loop for Blinking Flashlight 5 times
             for (int i=0; i <= 10; i++) {
                 toggleFlashLight();
                 sleep(delay);
@@ -136,12 +148,14 @@ public class MainActivity extends Activity {
 		};
 		t.start();
 	}
-	
+	//On and Off Flashlight
 	public void toggleFlashLight() {
         if (!LightOn) { 
         	flashon();
+        	System.out.println("Blink"+"FlashLight On");
         } else { 
             flashoff();
+            System.out.println("Blink"+"FlashLight Off");
         }
     }
 
