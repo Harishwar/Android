@@ -145,7 +145,7 @@ public class PDFActivity extends Activity {
             try {
             	CharSequence text1 = "PDF File 1 Download Complete";
                 async_service.setCallback(async_callback, url_box1.getText().toString());
-                Toast toast1 = Toast.makeText(context, text1, Toast.LENGTH_LONG);
+                Toast toast1 = Toast.makeText(context, text1, Toast.LENGTH_SHORT);
                 toast1.show();
 
             } catch (RemoteException e) {
@@ -153,7 +153,7 @@ public class PDFActivity extends Activity {
             }
         } else {
             CharSequence text1 = "The Service is not bound. Attempting to bind again.";
-            Toast toast = Toast.makeText(context, text1, Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(context, text1, Toast.LENGTH_SHORT);
             toast.show();
             bindService(new Intent(context, AService.class), async_service_connection, Context.BIND_AUTO_CREATE);
         }
@@ -163,7 +163,7 @@ public class PDFActivity extends Activity {
             try {
             	CharSequence text2 = "PDF File 2 Download Complete";
                 async_service.setCallback(async_callback, url_box2.getText().toString());
-                Toast toast2 = Toast.makeText(context, text2, Toast.LENGTH_LONG);
+                Toast toast2 = Toast.makeText(context, text2, Toast.LENGTH_SHORT);
                 toast2.show();
 
             } catch (RemoteException e) {
@@ -171,7 +171,7 @@ public class PDFActivity extends Activity {
             }
         } else {
             CharSequence text2 = "The Service is not bound. Attempting to bind again.";
-            Toast toast = Toast.makeText(context, text2, Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(context, text2, Toast.LENGTH_SHORT);
             toast.show();
             bindService(new Intent(context, AService.class), async_service_connection, Context.BIND_AUTO_CREATE);
         }
@@ -181,14 +181,14 @@ public class PDFActivity extends Activity {
             try {
             	CharSequence text3 = "PDF File 3 Download Complete";
                 async_service.setCallback(async_callback, url_box3.getText().toString());
-                Toast toast3 = Toast.makeText(context, text3, Toast.LENGTH_LONG);
+                Toast toast3 = Toast.makeText(context, text3, Toast.LENGTH_SHORT);
                 toast3.show();
             } catch (RemoteException e) {
                 Log.d(getClass().getSimpleName(), "Error", e);
             }
         } else {
             CharSequence text3 = "The Service is not bound. Attempting to bind again.";
-            Toast toast4 = Toast.makeText(context, text3, Toast.LENGTH_LONG);
+            Toast toast4 = Toast.makeText(context, text3, Toast.LENGTH_SHORT);
             toast4.show();
             bindService(new Intent(context, AService.class), async_service_connection, Context.BIND_AUTO_CREATE);
         }
@@ -198,14 +198,14 @@ public class PDFActivity extends Activity {
             try {
             	CharSequence text4 = "PDF File 4 Download Complete";
                 async_service.setCallback(async_callback, url_box4.getText().toString());
-                Toast toast4 = Toast.makeText(context, text4, Toast.LENGTH_LONG);
+                Toast toast4 = Toast.makeText(context, text4, Toast.LENGTH_SHORT);
                 toast4.show();
             } catch (RemoteException e) {
                 Log.d(getClass().getSimpleName(), "Error", e);
             }
         } else {
             CharSequence text4 = "The Service is not bound. Attempting to bind again.";
-            Toast toast = Toast.makeText(context, text4, Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(context, text4, Toast.LENGTH_SHORT);
             toast.show();
             bindService(new Intent(context, AService.class), async_service_connection, Context.BIND_AUTO_CREATE);
         }
@@ -215,14 +215,14 @@ public class PDFActivity extends Activity {
             try {
             	CharSequence text5 = "PDF File 5 Download Complete";
                 async_service.setCallback(async_callback, url_box5.getText().toString());
-                Toast toast5 = Toast.makeText(context, text5, Toast.LENGTH_LONG);
+                Toast toast5 = Toast.makeText(context, text5, Toast.LENGTH_SHORT);
                 toast5.show();
             } catch (RemoteException e) {
                 Log.d(getClass().getSimpleName(), "Error", e);
             }
         } else {
             CharSequence text5 = "The Service is not bound. Attempting to bind again.";
-            Toast toast = Toast.makeText(context, text5, Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(context, text5, Toast.LENGTH_SHORT);
             toast.show();
             bindService(new Intent(context, AService.class), async_service_connection, Context.BIND_AUTO_CREATE);
         }

@@ -46,8 +46,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.harishwar.servicesapp.MainActivity" />
-        </activity>    
-		<service android:name=".AService" android:process=":my_process"/>
+        </activity>
+        	<!-- <service android:name="com.harishwar.servicesapp.DownloadService"/> -->
+             		<service android:name=".AService" android:process=":my_process"/>
         	
     </application>
 
